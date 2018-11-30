@@ -3,5 +3,5 @@
   <%= @evento.sintoma %>
 </p>
 
-<%= link_to 'Editar', edit_evento_path(@evento) %> |
-<%= link_to 'Voltar', eventos_path %>
+<%= link_to 'Editar', edit_evento_path(@evento), class: 'btn btn-primary btn-sm active' %> |
+<%= link_to 'Voltar', eventos_path, class: 'btn btn-default btn-sm'   %>

@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :sintoma, "Sintoma" %><br>
-    <%= f.text_field :sintoma %>
+    <%= f.text_field :sintoma, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit "Enviar" %>
+    <%= f.submit "Enviar", class: 'btn btn-primary active' %>
   </div>
 <% end %>

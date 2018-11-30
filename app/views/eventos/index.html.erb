@@ -1,10 +1,10 @@
 <h1> Lista de ocasiões </h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Sintoma</th>
-      <th>Data e hora</th>
+      <th class="text-center">Sintoma</th>
+      <th class="text-center">Data e hora</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +14,8 @@
       <tr>
         <td><%= evento.sintoma %></td>
         <td><%= evento.created_at.strftime("%d/%m/%Y %H:%M") %>  </td>
-        <td><%= link_to 'Mostrar', evento %></td>
-        <td><%= link_to 'Editar', edit_evento_path(evento) %></td>
+        <td class="text-center"><%= link_to 'Mostrar', evento, class: 'btn btn-primary btn-sm active' %></td>
+        <td class="text-center"><%= link_to 'Editar', edit_evento_path(evento), class: 'btn btn-default btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,7 +23,9 @@
 
 <br>
 
-<%= link_to 'Novo Evento', new_evento_path %>
+<%= link_to 'Novo Evento', new_evento_path, class: 'btn btn-primary active' %>
 
+<div class="table">
+  <%= paginate(@eventos) %>
+</div>
 
-<%= paginate(@eventos) %>

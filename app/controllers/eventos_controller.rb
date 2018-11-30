@@ -1,10 +1,11 @@
 class EventosController < ApplicationController
+  PER_PAGE = 25
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
   # GET /eventos
   # GET /eventos.json
   def index
-    @eventos = Evento.all
+    @eventos = Evento.all.page(params[:page]).per(PER_PAGE)
   end
 
   # GET /eventos/1
@@ -28,7 +29,7 @@ class EventosController < ApplicationController
 
     respond_to do |format|
       if @evento.save
-        format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
+        format.html { redirect_to @evento, notice: 'Evento criado com sucesso.' }
         format.json { render :show, status: :created, location: @evento }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class EventosController < ApplicationController
   def update
     respond_to do |format|
       if @evento.update(evento_params)
-        format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
+        format.html { redirect_to @evento, notice: 'Evento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @evento }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class EventosController < ApplicationController
   def destroy
     @evento.destroy
     respond_to do |format|
-      format.html { redirect_to eventos_url, notice: 'Evento was successfully destroyed.' }
+      format.html { redirect_to eventos_url, notice: 'Evento apagado com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20181130131536) do
 
   create_table "eventos", force: :cascade do |t|
-    t.string   "sintoma",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "sintoma",    limit: 255, default: "Passei mal"
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
 end

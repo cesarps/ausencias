@@ -1,5 +1,7 @@
 class EventosController < ApplicationController
-  PER_PAGE = 20
+  PER_PAGE = 15
+
+  before_filter :check_logged
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
   # GET /eventos

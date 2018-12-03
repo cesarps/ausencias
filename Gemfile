@@ -58,8 +58,11 @@ gem 'kaminari'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-# datatablles
+# datatables
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'jquery-ui-rails'
+
+# datepicker
+gem 'bootstrap-datepicker-rails'
 
 

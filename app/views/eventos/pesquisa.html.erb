@@ -1,0 +1,47 @@
+<script language="javascript">
+    $(function() {
+        $(".datepicker").datepicker({
+            format: "dd/mm/yyyy",
+            language: 'pt-BR'
+        })
+    })
+</script>
+
+
+<%= form_tag(pesquisa_path, method: "get") do  %>
+    <h3> Pesquisa por períodos </h3>
+    <table class="table bordered display">
+      <tr>
+        <td>Escolha uma data inicial<br>
+          <%= text_field_tag :inicio, nil, class: 'datepicker' %>
+        </td>
+        <td>Escolha uma data final<br>
+          <%= text_field_tag :fim, nil,  class: 'datepicker' %>
+        </td>
+      </tr>
+    </table>
+    <%= submit_tag "Enviar", class: 'btn btn-default' %>
+<% end %>
+
+
+<p> Data inicial escolhida: <%= params[:inicio] %> </p>
+<p> Data final escolhida: <%= params[:fim] %>  </p>
+
+<table class="table table-bordered">
+<thead>
+<tr>
+  <th class="text-center"> Sintoma</th>
+  <th class="text-center">Data e hora do ocorrido</th>
+</tr>
+</thead>
+ <tbody>
+ <% @resultado.each do |res| %>
+    <tr>
+      <td> <%= res.sintoma %></td>
+      <td> <%= res.created_at.strftime("%d/%m/%Y %H:%M") %>  <td>
+    </tr>
+ <% end %>
+ </tbody>
+</table>
+
+<%= link_to "Voltar", eventos_path, class: 'btn btn-primary active' %>

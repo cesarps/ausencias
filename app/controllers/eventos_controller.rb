@@ -4,6 +4,31 @@ class EventosController < ApplicationController
   before_filter :check_logged
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
+
+  def pesquisa
+
+    @data_inicial = params[:inicio].to_s.split("/")
+    @data_final =params[:fim].to_s.split("/")
+
+    @di = @data_inicial[0]
+    @mi = @data_inicial[1]
+    @ai = @data_inicial[2]
+    @df = @data_final[0]
+    @mf = @data_final[1]
+    @af = @data_final[2]
+
+    @difb = @ai.to_s + "-" + @mi.to_s  + "-" + @di.to_s + " 00:00:00"
+    @dffb = @af.to_s + "-" + @mf.to_s + "-" + @df.to_s + " 23:59:59"
+
+    @resultado = Evento.where('created_at between ? and ?', @difb, @dffb)
+
+
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # GET /eventos
   # GET /eventos.json
   def index

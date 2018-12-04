@@ -65,4 +65,6 @@ gem 'jquery-ui-rails'
 # datepicker
 gem 'bootstrap-datepicker-rails'
 
-
+# geração de pdf's
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

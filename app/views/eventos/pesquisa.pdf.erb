@@ -1,0 +1,78 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<style type="text/css">
+
+  body {
+      font-family: 'OpenSansRegular';
+      font-size: 50px;
+  }
+
+
+    .table-bordered {
+        font-family: 'OpenSansRegular';
+        font-size: 50px;
+        padding: 1em;
+        border-collapse: collapse;
+    }
+
+    .text-center {
+        border-spacing: 1em;
+        padding: 0.5em;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    td,th {
+        border: 1px solid #000;
+        border-spacing: 2em;
+        padding: 0.5em; ;
+        text-align: center;
+    }
+
+    hr {
+        border:0.3px solid #fff;
+        background-color: #fff;
+        height: 0.3px;
+    }
+
+</style>
+
+
+<h2> Controle de ausências </h2>
+
+<h3> Intervalo</h3>
+<p> Contando de: <%= @inicio %></p>
+<p> Até: <%= @fim %> </p>
+
+<div id="resultados">
+ <table class="table table-bordered">
+  <thead>
+  <tr>
+    <th class="text-center"> Sintoma</th>
+    <th class="text-center">Data e hora do ocorrido</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @resultado.each do |res| %>
+      <tr>
+        <td> <%= res.sintoma %></td>
+        <td> <%= res.created_at.strftime("%d/%m/%Y %H:%M") %>  </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+</body>
+
+</html>

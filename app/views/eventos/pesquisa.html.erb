@@ -45,3 +45,4 @@
 </table>
 
 <%= link_to "Voltar", eventos_path, class: 'btn btn-primary active' %>
+<%= link_to "Gerar PDF", pesquisa_path(@eventos, inicio: params[:inicio], fim: params[:fim], page: params[:page], format: 'pdf'), class: 'btn btn-default', target: '_blank' %>

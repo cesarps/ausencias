@@ -1,5 +1,5 @@
 class EventosController < ApplicationController
-  PER_PAGE = 15
+  PER_PAGE = 10
 
   before_filter :check_logged
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
@@ -9,6 +9,8 @@ class EventosController < ApplicationController
 
     @data_inicial = params[:inicio].to_s.split("/")
     @data_final =params[:fim].to_s.split("/")
+    @inicio = params[:inicio]
+    @fim = params[:fim]
 
     @di = @data_inicial[0]
     @mi = @data_inicial[1]
@@ -26,6 +28,11 @@ class EventosController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.pdf do
+        render :pdf => 'file_name',
+               :show_as_html => params.key('debug'),
+               footer: { center: '[page]/[topage]'  }
+      end
     end
   end
 

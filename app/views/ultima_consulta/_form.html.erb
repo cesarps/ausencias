@@ -1,0 +1,32 @@
+<script language="javascript">
+    $(function() {
+        $(".datepicker").datepicker({
+            format: "dd/mm/yyyy",
+            language: 'pt-BR'
+        })
+    })
+</script>
+
+
+
+<%= form_for(@ultima_consultum) do |f| %>
+  <% if @ultima_consultum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ultima_consultum.errors.count, "error") %> prohibited this ultima_consultum from being saved:</h2>
+
+      <ul>
+      <% @ultima_consultum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_ultima_consulta %><br>
+    <%= f.text_field :data_ultima_consulta, class: 'datepicker' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar", class: 'btn btn-default' %>
+  </div>
+<% end %>

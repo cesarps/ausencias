@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :ultima_consulta
   get 'pesquisa' => 'eventos#pesquisa' , as: 'pesquisa'
 
 

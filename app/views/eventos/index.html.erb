@@ -25,6 +25,7 @@
 
 <%= link_to 'Novo Evento', new_evento_path, class: 'btn btn-primary active' %>
 <%= link_to 'Pesquisar por período', pesquisa_path, class: 'btn btn-default' %>
+<%= link_to 'Ultima Consulta', ultima_consulta_path, class:'btn btn-success active' %>
 
 <div class="table">
   <%= paginate(@eventos) %>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data ultima consulta:</strong>
+  <%= @ultima_consultum.data_ultima_consulta.strftime("%d/%m/%Y") %>
+</p>
+
+<%= link_to 'Editar', edit_ultima_consultum_path(@ultima_consultum), class: 'btn btn-primary active' %> |
+<%= link_to 'Voltar', ultima_consulta_path, class: 'btn btn-default' %>

@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181130131536) do
+ActiveRecord::Schema.define(version: 20190326173445) do
 
   create_table "eventos", force: :cascade do |t|
     t.string   "sintoma",    limit: 255, default: "Passei mal"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+  end
+
+  create_table "ultima_consulta", force: :cascade do |t|
+    t.datetime "data_ultima_consulta"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
